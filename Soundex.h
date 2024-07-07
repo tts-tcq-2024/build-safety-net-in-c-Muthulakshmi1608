@@ -65,10 +65,4 @@ void generateSoundex(const char *name, char *soundex) {
     soundex[4] = '\0';
 }
 
-int main() {
-    char value[10] = "Robert";
-    char soundex[10];
-    generateSoundex(value, soundex);
-    printf("Soundex: %s\n", soundex);
-    return 0;
-}
+#endif // SOUNDEX_H
