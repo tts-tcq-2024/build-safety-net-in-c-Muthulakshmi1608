@@ -57,9 +57,8 @@ void generateSoundex(const char *name, char *soundex) {
 
     for (int i = 1; i < len && sIndex < 4; i++) {
         int code = getSoundexCode(toupper(name[i]));
-        if (shouldAddCode(code, soundex, sIndex)) {
-            soundex[sIndex++] = '0' + code;  // Convert int to char
-        }
+        (shouldAddCode(code, soundex, sIndex)) ? (soundex[sIndex++] = '0' + code) : 0;  // Convert int to char
+        
     }
 
     soundex[4] = '\0';
