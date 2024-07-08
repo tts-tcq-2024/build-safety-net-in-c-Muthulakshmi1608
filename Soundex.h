@@ -58,10 +58,6 @@ void generateSoundex(const char *name, char *soundex) {
         }
     }
 
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
-    }
-
     soundex[4] = '\0';
 }
 
