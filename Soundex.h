@@ -10,6 +10,8 @@ int case1() { return 1; }
 int case2() { return 2; }
 int case3() { return 3; }
 int case5() { return 5; }
+int case4() { return 4;}
+int case6() { return 6;}
 int defaultCase() { return 0; }
 
 typedef struct {
@@ -23,10 +25,12 @@ int getSoundexCode(char letter) {
         {{'C','G','J','K','Q','S','X','Z', '\0'}, case2},
         {{'D','T', '\0'}, case3},
         {{'M','N', '\0'}, case5},
-        {{'A','E','I','O','U','H','W','Y', '\0'}, defaultCase}
+        {{'A','E','I','O','U','H','W','Y', '\0'}, defaultCase},
+        {{'L','\0'},case4},
+        {{'R','\0'},case6}
     };
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
         int j = 0;
         while (cases[i].value[j] != '\0') {
             if (cases[i].value[j] == letter) {
@@ -34,13 +38,6 @@ int getSoundexCode(char letter) {
             }
             j++;
         }
-    }
-
-    if (letter == 'L') {
-        return 4;
-    }
-    if (letter == 'R') {
-        return 6;
     }
 
     return defaultCase();
