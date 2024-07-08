@@ -19,6 +19,15 @@ typedef struct {
     int (*func)();
 } CaseEntry;
 
+int findInCase(const char *values, char letter) {
+    for (int j = 0; values[j] != '\0'; j++) {
+        if (values[j] == letter) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int getSoundexCode(char letter) {
     static CaseEntry cases[] = {
         {{'B','F','P','V', '\0'}, case1},
@@ -30,14 +39,8 @@ int getSoundexCode(char letter) {
         {{'R','\0'},case6}
     };
 
-    for (int i = 0; i < 7; i++) {
-        int j = 0;
-        while (cases[i].value[j] != '\0') {
-            if (cases[i].value[j] == letter) {
-                return cases[i].func();
-            }
-            j++;
-        }
+    for (int i = 0; i < 5; i++) {
+        findInCase(cases[i].value, letter) ? (return cases[i].func(), 0) : 0;
     }
 
     return defaultCase();
