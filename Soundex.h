@@ -40,7 +40,7 @@ int getSoundexCode(char letter) {
     };
 
     for (int i = 0; i < 5; i++) {
-        findInCase(cases[i].value, letter) ? (return cases[i].func(), 0) : 0;
+        findInCase(cases[i].value, letter) ? (return cases[i].func()) : 0;
     }
 
     return defaultCase();
