@@ -47,7 +47,10 @@ int getSoundexCode(char letter) {
 }
 
 int shouldAddCode(int code, char *soundex, int sIndex) {
-    return code != 0 && code != soundex[sIndex - 1];
+    if( code != 0 && code != soundex[sIndex - 1])
+    {
+        (soundex[sIndex++] = '0' + code);
+    }
 }
 
 void generateSoundex(const char *name, char *soundex) {
@@ -57,7 +60,7 @@ void generateSoundex(const char *name, char *soundex) {
 
     for (int i = 1; i < len && sIndex < 4; i++) {
         int code = getSoundexCode(toupper(name[i]));
-        (shouldAddCode(code, soundex, sIndex)) ? (soundex[sIndex++] = '0' + code) : 0;  // Convert int to char
+        (shouldAddCode(code, soundex, sIndex));  // Convert int to char
         
     }
 
