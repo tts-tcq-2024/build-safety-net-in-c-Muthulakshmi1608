@@ -40,10 +40,10 @@ int getSoundexCode(char letter) {
     };
 
     for (int i = 0; i < 5; i++) {
-        findInCase(cases[i].value, letter) ? (return cases[i].func()) : 0;
+        if(findInCase(cases[i].value, letter)){
+            (return cases[i].func());
+        }
     }
-
-    return defaultCase();
 }
 
 void generateSoundex(const char *name, char *soundex) {
