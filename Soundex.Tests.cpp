@@ -8,14 +8,19 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  
  generateSoundex("Robert", soundex);
  generateSoundex("Honeyman", soundex);
- generateSoundex("Rupert", soundex);
- generateSoundex("Ashcraft", soundex);
  generateSoundex("Tymczak", soundex);
  generateSoundex("Pfister", soundex);
-
+ generateSoundex("Rubin", soundex);
+ 
   //ASSERT_EQ(soundex,"R163");
 }
 
 TEST(SoudexTestsuite, SameCodeWithAppropriateDigits) {
-generateSoundex("Pfister", soundex);
+generateSoundex("Ashcroft", soundex);
+generateSoundex("Rupert", soundex);
 }
+TEST(SoudexTestsuite, VowelsWithAppropriateDigits) { 
+ generateSoundex("Ashcraft", soundex);
+ generateSoundex("Honeyman", soundex);
+}
+ 
