@@ -40,5 +40,6 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
  generateSoundex("Smith-Jones", soundex);
   generateSoundex("RoBeRt", soundex);
 generateSoundex("Bbbb", soundex);
+  generateSoundex("//;\n1;2", soundex)
 }
  
