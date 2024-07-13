@@ -1,4 +1,4 @@
-#ifndef SOUNDEX_H
+`#ifndef SOUNDEX_H
 #define SOUNDEX_H
 
 
@@ -46,32 +46,56 @@ int getSoundexCode(char letter) {
         }
     }
 }
+bool isVowel(int code,char *soundex,int a,int i,const char *name)
+{
+    return((getSoundexCode(toupper(name[i]))==0) && name[i] != 'h' && name[i]!='w');
+}
 
-int shouldAddCode(int code, char *soundex, int a) {
-    if( code != 0 && code != (soundex[a-1]-'0'))
+bool isVowelCode(int code,char *soundex,int a)
+{
+
+   return ( code != 0 && code == (soundex[a-1] - '0'));
+}
+
+bool vowelcalc(int code,char *soundex,int a,int i,const char *name)
+{
+    return (isVowel(code,soundex,a,i,name) && isVowelCode(code,soundex,a));
+}
+
+bool isConsonantCode(int code,char *soundex,int a)
+{
+
+   return ( code != 0 && code != (soundex[a-1] - '0'));
+}
+
+int shouldAddCode(int code, char *soundex, int a,int i,const char *name) {
+    if(vowelcalc(code,soundex,a,(i-1),name) || (isConsonantCode(code,soundex,a)))
     {
         (soundex[a++] = '0' + code);
         return a;
     }
     return a;
 }
+
 bool istrue(int i,int sIndex,int len)
 {
     return ((i < len) && (sIndex < 4));
 }
+
 
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);
     soundex[0] = '0' + getSoundexCode(toupper(name[0]));
     int sIndex = 1;
+    //int conditon;
 
     for (int i = 1;(istrue(i,sIndex,len)); i++) {
         int code = getSoundexCode(toupper(name[i]));
-        sIndex=(shouldAddCode(code, soundex, sIndex));  // Convert int to char
+        sIndex=(shouldAddCode(code, soundex, sIndex,i,name));  // Convert int to char
         
     }
-
+    
     while (sIndex < 4) {
         soundex[sIndex++] = '0';
     }
