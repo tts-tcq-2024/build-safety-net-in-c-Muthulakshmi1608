@@ -26,5 +26,7 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
  generateSoundex("Van Dyke", soundex);
  generateSoundex("A", soundex);
  generateSoundex("", soundex);
+  generateSoundex("123", soundex);
+  generateSoundex("AA", soundex);
 }
  
