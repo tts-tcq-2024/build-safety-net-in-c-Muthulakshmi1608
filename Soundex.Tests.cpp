@@ -29,5 +29,10 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
   generateSoundex("123", soundex);
   generateSoundex("AA", soundex);
   generateSoundex("R123", soundex);
+ generateSoundex("Clark", soundex);
+ generateSoundex("B", soundex);
+ generateSoundex("Z", soundex);
+ generateSoundex("C", soundex);
+ generateSoundex("BF", soundex);
 }
  
