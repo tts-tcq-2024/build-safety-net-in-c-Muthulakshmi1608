@@ -16,6 +16,6 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   //ASSERT_EQ(soundex,"R163");
 }
 
-TEST_1(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
-generateSoundex("Rubin", soundex);
+TEST(SoudexTestsuite, SameCodeWithAppropriateDigits) {
+generateSoundex("Pfister", soundex);
 }
