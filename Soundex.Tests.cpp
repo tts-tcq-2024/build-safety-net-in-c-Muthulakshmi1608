@@ -41,5 +41,6 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
   generateSoundex("RoBeRt", soundex);
 generateSoundex("Bbbb", soundex);
   generateSoundex("//;\n1;2", soundex);
+ generateSoundex("Andrew", soundex);
 }
  
