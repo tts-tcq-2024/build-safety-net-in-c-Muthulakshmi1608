@@ -22,5 +22,7 @@ generateSoundex("Rupert", soundex);
 TEST(SoudexTestsuite, VowelsWithAppropriateDigits) { 
  generateSoundex("Ashcraft", soundex);
  generateSoundex("Honeyman", soundex);
+ generateSoundex("O'Neil", soundex);
+ generateSoundex("Van Dyke", soundex);
 }
  
