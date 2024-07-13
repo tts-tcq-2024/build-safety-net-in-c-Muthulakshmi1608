@@ -34,5 +34,11 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
  generateSoundex("Z", soundex);
  generateSoundex("C", soundex);
  generateSoundex("BF", soundex);
+ generateSoundex("Honeymanbagsss", soundex);
+ generateSoundex("McDonald", soundex);
+ generateSoundex("John's", soundex);
+ generateSoundex("Smith-Jones", soundex);
+  generateSoundex("RoBeRt", soundex);
+generateSoundex("Bbbb", soundex);
 }
  
