@@ -28,5 +28,6 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
  generateSoundex("", soundex);
   generateSoundex("123", soundex);
   generateSoundex("AA", soundex);
+  generateSoundex("R123", soundex);
 }
  
