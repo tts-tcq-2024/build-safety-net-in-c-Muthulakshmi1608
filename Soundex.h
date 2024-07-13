@@ -48,7 +48,7 @@ int getSoundexCode(char letter) {
 }
 
 int shouldAddCode(int code, char *soundex, int a) {
-    if( code != 0 && code != soundex[a-1])
+    if( code != 0 && code != (soundex[a-1]-'0'))
     {
         (soundex[a++] = '0' + code);
         return a;
