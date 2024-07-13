@@ -63,6 +63,7 @@ bool istrue(int i,int sIndex,int len)
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);
+    soundex[0] = '0' + getSoundexCode(toupper(name[0]));
     int sIndex = 1;
 
     for (int i = 1;(istrue(i,sIndex,len)); i++) {
@@ -76,6 +77,7 @@ void generateSoundex(const char *name, char *soundex) {
     }
 
     soundex[4] = '\0';
+    soundex[0] = toupper(name[0]);
 }
 
 #endif // SOUNDEX_H
