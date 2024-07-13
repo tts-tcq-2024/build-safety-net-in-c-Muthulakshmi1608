@@ -39,7 +39,7 @@ int getSoundexCode(char letter) {
         {{'R','\0'},case6}
     };
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
         if(findInCase(cases[i].value, letter)){
             return cases[i].func();
         }
