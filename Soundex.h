@@ -7,20 +7,21 @@
 #include <string.h>
 #include <stdbool.h>
 
-int case1() { return 1; }
-int case2() { return 2; }
-int case3() { return 3; }
-int case5() { return 5; }
-int case4() { return 4;}
-int case6() { return 6;}
-int defaultCase() { return 0; }
+int consonantcode1() { return 1; } 
+int consonantcode2() { return 2; }
+int consonantcode3() { return 3; }
+int consonantcode5() { return 5; }
+int consonantcode4() { return 4;}
+int consonantcode6() { return 6;}
+int vowelcode() { return 0; }
 
 typedef struct {
     char value[10];
-    int (*func)();
-} CaseEntry;
+    int (*getcodefunc)();
+} soundexcode;
 
-int findInCase(const char *values, char letter) {
+//If the letter matches with the value array return 1 or else return 0
+int getcode(const char *values, char letter) {
     for (int j = 0; values[j] != '\0'; j++) {
         if (values[j] == letter) {
             return 1;
@@ -30,19 +31,19 @@ int findInCase(const char *values, char letter) {
 }
 
 int getSoundexCode(char letter) {
-    static CaseEntry cases[] = {
-        {{'B','F','P','V', '\0'}, case1},
-        {{'C','G','J','K','Q','S','X','Z', '\0'}, case2},
-        {{'D','T', '\0'}, case3},
-        {{'M','N', '\0'}, case5},
-        {{'A','E','I','O','U','H','W','Y', '\0'}, defaultCase},
-        {{'L','\0'},case4},
-        {{'R','\0'},case6}
+    static soundexcode code[] = {
+        {{'B','F','P','V', '\0'}, consonantcode1},
+        {{'C','G','J','K','Q','S','X','Z', '\0'}, consonantcode2},
+        {{'D','T', '\0'}, consonantcode3},
+        {{'M','N', '\0'}, consonantcode5},
+        {{'A','E','I','O','U','H','W','Y', '\0'}, vowelcode},
+        {{'L','\0'},consonantcode4},
+        {{'R','\0'},consonantcode6}
     };
 
     for (int i = 0; i < 7; i++) {
-        if(findInCase(cases[i].value, letter)){
-            return cases[i].func();
+        if(getcode(code[i].value, letter)){
+            return code[i].getcodefunc();
         }
     }
 }
